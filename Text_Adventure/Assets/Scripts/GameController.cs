@@ -7,12 +7,13 @@ public class GameController : MonoBehaviour {
 
 	public Text displayText;
 
-	[HideInInspector] public RoomNavigation RoomNavigation;
+	[HideInInspector] public RoomNavigation roomNavigation;
+	[HideInInspector] public List<string> interactionDescriptionsInRoom = new List<string> ();
 	// Use this for initialization
 
 	List<string> actionLog = new List<string> ();
 	void Awake () {
-		RoomNavigation = GetComponent<RoomNavigation> ();
+		roomNavigation = GetComponent<RoomNavigation> ();
 	}
 
 	void Start(){
@@ -28,8 +29,16 @@ public class GameController : MonoBehaviour {
 
 	public void DisplayRoomText()
 	{
-		string combinedText = RoomNavigation.currentRoom.description + "\n";
+		UnpackRoom ();
+
+		string joinedInteractionDescriptions = string.Join ("\n", interactionDescriptionsInRoom.ToArray ());
+
+		string combinedText = roomNavigation.currentRoom.description + "\n" + joinedInteractionDescriptions;
 		LogStringWithReturn (combinedText);
+	}
+
+	void UnpackRoom() {
+		roomNavigation.UnpackExitsInRoom ();
 	}
 
 	public void LogStringWithReturn(string stringToAdd) {
