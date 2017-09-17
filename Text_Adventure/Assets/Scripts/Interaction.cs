@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Exit {
+public class Interaction {
 
-	public string keyString;
-	public string exitDescription;
-	public Room valueRoom;
+	public InputAction inputAction;
+	[TextArea]
+	public string textResponse;
 }
-

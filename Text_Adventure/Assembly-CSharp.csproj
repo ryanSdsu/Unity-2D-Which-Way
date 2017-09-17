@@ -51,12 +51,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Examine.cs" />
      <Compile Include="Assets\Scripts\Exit.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\Go.cs" />
      <Compile Include="Assets\Scripts\InputAction.cs" />
+     <Compile Include="Assets\Scripts\InteractableItems.cs" />
+     <Compile Include="Assets\Scripts\InteractableObject.cs" />
+     <Compile Include="Assets\Scripts\Interaction.cs" />
      <Compile Include="Assets\Scripts\Room.cs" />
      <Compile Include="Assets\Scripts\RoomNavigation.cs" />
+     <Compile Include="Assets\Scripts\Take.cs" />
      <Compile Include="Assets\Scripts\TextInput.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
