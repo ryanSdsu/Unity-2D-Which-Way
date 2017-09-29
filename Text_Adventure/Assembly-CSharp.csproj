@@ -51,18 +51,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\NeonShapes\SelfDestroyScript.cs" />
      <Compile Include="Assets\Scripts\ActionResponse.cs" />
      <Compile Include="Assets\Scripts\ChangeRoomResponse.cs" />
      <Compile Include="Assets\Scripts\Examine.cs" />
      <Compile Include="Assets\Scripts\Exit.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\Go.cs" />
+     <Compile Include="Assets\Scripts\InfoPannelController.cs" />
      <Compile Include="Assets\Scripts\InputAction.cs" />
      <Compile Include="Assets\Scripts\InteractableItems.cs" />
      <Compile Include="Assets\Scripts\InteractableObject.cs" />
      <Compile Include="Assets\Scripts\Interaction.cs" />
      <Compile Include="Assets\Scripts\Inventory.cs" />
      <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
+     <Compile Include="Assets\Scripts\Refresh.cs" />
      <Compile Include="Assets\Scripts\Room.cs" />
      <Compile Include="Assets\Scripts\RoomNavigation.cs" />
      <Compile Include="Assets\Scripts\Take.cs" />
