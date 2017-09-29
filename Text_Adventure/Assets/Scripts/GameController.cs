@@ -80,7 +80,7 @@ public class GameController : MonoBehaviour {
 			return verbDictionary [noun];
 		}
 
-		return "You can't " + verbDictionary + " " + noun;
+		return "You can't " + TestVerbDictionarywithNoun + " the " + noun;
 	}
 
 	void ClearCollectionForNewRoom() {

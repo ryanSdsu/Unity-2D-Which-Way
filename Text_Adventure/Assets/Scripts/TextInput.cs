@@ -14,7 +14,7 @@ public class TextInput : MonoBehaviour {
 
 		"You got your degree where?",
 
-		"Rest In Peace",
+		"Rest In Peace. :( ",
 
 		"You're trying that again?",
 
@@ -24,11 +24,13 @@ public class TextInput : MonoBehaviour {
 
 		"Have you checked the help dialog?",
 
-		"How about we take a break",
+		"How about we take a break?",
+
+		"Seriously. How about we take a break?",
 
 		"That's not a valid command",
 
-		"Nope that way.",
+		"Nope.",
 
 		"Maybe we should go get tacos.",
 
@@ -36,7 +38,16 @@ public class TextInput : MonoBehaviour {
 
 		"Almost... ok not really.",
 
-		"Take a break. And try not to type that again."
+		"Take a break. And try not to type that again.",
+
+		"Sorry. That was not a valid command.",
+
+		"Sorry again... That command does not work.",
+
+		"I didn't get that. What did you mean?",
+
+		"There is a giant question mark on the top right of the screen. Try clicking that."
+
 
 
 	};
