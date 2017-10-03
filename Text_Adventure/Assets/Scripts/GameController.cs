@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
@@ -18,6 +19,20 @@ public class GameController : MonoBehaviour {
 		interactableItems = GetComponent<InteractableItems> ();
 		roomNavigation = GetComponent<RoomNavigation> ();
 	}
+
+
+	public void RestartGame () {
+
+		SceneManager.LoadScene ("Main");
+
+	}
+
+	public void QuitGame () {
+
+		Application.Quit ();
+
+	}
+
 
 	void Start(){
 		DisplayRoomText ();

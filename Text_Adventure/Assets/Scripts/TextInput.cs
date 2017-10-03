@@ -46,7 +46,9 @@ public class TextInput : MonoBehaviour {
 
 		"I didn't get that. What did you mean?",
 
-		"There is a giant question mark on the top right of the screen. Try clicking that."
+		"There is a giant question mark on the top right of the screen. Try clicking that.",
+
+		"Go aheard. Rage."
 
 
 
@@ -67,28 +69,29 @@ public class TextInput : MonoBehaviour {
 	}
 
 	void AcceptStringInput(string userInput) {
-	
+
 		userInput = userInput.ToLower ();
 		controller.LogStringWithReturn (userInput);
 
 		char[] delimiterCharacters = { ' ' };
 		string[] separatedInputWords = userInput.Split (delimiterCharacters);
 
-		bool commandSuccess = false;
+		if (separatedInputWords.Length <= 1) {
+			InputComplete (false);
+			return;
+		}
+			
 		for (int i = 0; i < controller.inputActions.Length; i++) {
 
 			InputAction inputAction = controller.inputActions [i];
 			if (inputAction.keyWord == separatedInputWords [0]) {
 				inputAction.RespondToInput (controller, separatedInputWords);
-				commandSuccess = true;
+				InputComplete ();
+				return;
 			}
 		}
-
-		if (commandSuccess == false) {
-			issueSmartComebacks ();
-		}
-
-		InputComplete ();
+			
+		InputComplete (false);
 	
 	}
 
@@ -100,8 +103,9 @@ public class TextInput : MonoBehaviour {
 
 	}
 
-	void InputComplete() {
-	
+	void InputComplete(bool success = true) {
+		if (!success)
+			issueSmartComebacks ();
 		controller.DisplayLoggedText ();
 		inputField.ActivateInputField ();
 		inputField.text = null;

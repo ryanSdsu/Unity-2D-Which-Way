@@ -8,6 +8,9 @@ public class RoomNavigation : MonoBehaviour {
 
 	Dictionary<string, Room> exitDictionary = new Dictionary<string, Room> ();
 	GameController controller;
+	public Animator winScreenAnimator;
+
+
 
 	void Awake() 
 	{
@@ -27,11 +30,22 @@ public class RoomNavigation : MonoBehaviour {
 		if (exitDictionary.ContainsKey (directionNoun)) {
 
 			currentRoom = exitDictionary [directionNoun];
+
+
+			if (currentRoom.isWinRoom) {
+
+				winScreenAnimator.SetBool ("IsActive", true);
+
+			}
+
+
+
+
 			controller.LogStringWithReturn ("You head off to the " + directionNoun);
 			controller.DisplayRoomText ();
 		} else {
 
-			controller.LogStringWithReturn ("There is no path to the " + directionNoun);
+			controller.LogStringWithReturn ("That is not a valid path.");
 		}
 	
 	}
