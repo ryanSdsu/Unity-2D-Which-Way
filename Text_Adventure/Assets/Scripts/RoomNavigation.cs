@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class RoomNavigation : MonoBehaviour {
 
@@ -9,7 +11,6 @@ public class RoomNavigation : MonoBehaviour {
 	Dictionary<string, Room> exitDictionary = new Dictionary<string, Room> ();
 	GameController controller;
 	public Animator winScreenAnimator;
-
 
 
 	void Awake() 
@@ -37,12 +38,14 @@ public class RoomNavigation : MonoBehaviour {
 				winScreenAnimator.SetBool ("IsActive", true);
 
 			}
-
-
-
-
+				
 			controller.LogStringWithReturn ("You head off to the " + directionNoun);
 			controller.DisplayRoomText ();
+
+			//Changing the background color
+			//BackgroundOfRoom.color = currentRoom.roomColor;
+
+
 		} else {
 
 			controller.LogStringWithReturn ("That is not a valid path.");

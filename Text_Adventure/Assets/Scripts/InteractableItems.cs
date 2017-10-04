@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InteractableItems : MonoBehaviour {
 
@@ -8,7 +9,7 @@ public class InteractableItems : MonoBehaviour {
 
 	public Dictionary<string, string> examineDictionary = new Dictionary<string, string> ();
 	public Dictionary<string, string> takeDictionary = new Dictionary<string, string> ();
-
+	public Image BackgroundOfRoom;
 
 	[HideInInspector] public List<string> nounsInRoom = new List<string>();
 
@@ -116,7 +117,20 @@ public class InteractableItems : MonoBehaviour {
 				if (!actionResult) {
 
 					controller.LogStringWithReturn ("Hmmm. Nothing happens...");
+				} else {
+
+					//To destroy an item in inventory
+					if (useDictionary [nounToUse].breakableItem) {
+						nounsInInventory.Remove (nounToUse);
+					}
+
+					if (useDictionary [nounToUse].changeRoomColor) {
+						BackgroundOfRoom.color = useDictionary [nounToUse].roomColor;
+					}
+
+
 				}
+
 			} else {
 				controller.LogStringWithReturn ("You can't use the " + nounToUse);
 			} 

@@ -76,7 +76,7 @@ public class TextInput : MonoBehaviour {
 		char[] delimiterCharacters = { ' ' };
 		string[] separatedInputWords = userInput.Split (delimiterCharacters);
 
-		if (separatedInputWords.Length <= 1) {
+		if (separatedInputWords.Length <= 1 && !separatedInputWords[0].Equals("inventory") && !separatedInputWords[0].Equals("/")) {
 			InputComplete (false);
 			return;
 		}

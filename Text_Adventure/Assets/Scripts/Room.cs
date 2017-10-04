@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 [CreateAssetMenu(menuName = "TextAdventure/Room")]
 public class Room : ScriptableObject {
@@ -12,5 +13,6 @@ public class Room : ScriptableObject {
 	public Exit[] exits;
 	public InteractableObject[] interactableObjectsInRoom;
 	public bool isWinRoom;
+	public Color roomColor = Color.black;
 
 }

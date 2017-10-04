@@ -8,6 +8,16 @@ public class GameController : MonoBehaviour {
 
 	public Text displayText;
 	public InputAction[] inputActions;
+	public Animator StartGameAnimator;
+	public GameObject StartTextScreen;
+	public GameObject DialogTextScreen;
+	public InputField inputField;
+
+	[SerializeField]
+	private GameObject CreditsTextScreen;
+	[SerializeField]
+	private Text RedButtonStartScreenText;
+
 
 	[HideInInspector] public RoomNavigation roomNavigation;
 	[HideInInspector] public List<string> interactionDescriptionsInRoom = new List<string> ();
@@ -21,6 +31,21 @@ public class GameController : MonoBehaviour {
 	}
 
 
+	public void showCredits() {
+
+		if (StartTextScreen.activeSelf){
+			StartTextScreen.SetActive (false);
+			DialogTextScreen.SetActive (false);
+			CreditsTextScreen.SetActive (true);
+			RedButtonStartScreenText.text = "Go Back";
+		} else {
+			StartTextScreen.SetActive (true);
+			DialogTextScreen.SetActive (true);
+			CreditsTextScreen.SetActive (false);
+			RedButtonStartScreenText.text = "Credits";
+		}
+	}
+
 	public void RestartGame () {
 
 		SceneManager.LoadScene ("Main");
@@ -33,6 +58,13 @@ public class GameController : MonoBehaviour {
 
 	}
 
+	public void StartGame() {
+
+		StartGameAnimator.SetBool ("IsActive", false);
+		inputField.ActivateInputField();
+
+	}
+		
 
 	void Start(){
 		DisplayRoomText ();
