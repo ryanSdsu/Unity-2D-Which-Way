@@ -52,7 +52,9 @@ public class TextInput : MonoBehaviour {
 
 		"Hmmm no that's not it sorry.",
 
-		"If at first you don't succeed try, try and try again."
+		"If at first you don't succeed try, try and try again.",
+
+		"..."
 
 
 
@@ -84,13 +86,23 @@ public class TextInput : MonoBehaviour {
 			InputComplete (false);
 			return;
 		}
+		else if (separatedInputWords.Length > 1 && (separatedInputWords[0].Equals("inventory") || separatedInputWords[0].Equals("/"))) {
+			InputComplete (false);
+			return;
+		}
 			
 		for (int i = 0; i < controller.inputActions.Length; i++) {
 
 			InputAction inputAction = controller.inputActions [i];
-			if (inputAction.keyWord == separatedInputWords [0]) {
+			if (inputAction.keyWord == separatedInputWords [0] && separatedInputWords.Length <= 2) {
 				inputAction.RespondToInput (controller, separatedInputWords);
 				InputComplete ();
+				return;
+			} else if (separatedInputWords.Length > 2) {
+				controller.LogStringWithReturn ("You can't \"" + separatedInputWords[0] +"\" with more than one word");
+				controller.DisplayLoggedText ();
+				inputField.ActivateInputField ();
+				inputField.text = null;
 				return;
 			}
 		}

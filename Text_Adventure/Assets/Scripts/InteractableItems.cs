@@ -26,7 +26,7 @@ public class InteractableItems : MonoBehaviour {
 
 		InteractableObject interactableInRoom = currentRoom.interactableObjectsInRoom [i];
 
-		if (!nounsInInventory.Contains (interactableInRoom.noun)) {
+		if (!nounsInInventory.Contains (interactableInRoom.noun) && !interactableInRoom.description.Equals("")) {
 
 			nounsInRoom.Add (interactableInRoom.noun);
 			return interactableInRoom.description;
@@ -98,7 +98,7 @@ public class InteractableItems : MonoBehaviour {
 			nounsInRoom.Remove (noun);
 			return takeDictionary;
 		} else {
-			controller.LogStringWithReturn ("There is no " + noun + " here to take.");
+			controller.LogStringWithReturn ("There is no \"" + noun + "\" here to take.");
 			return null;
 		}
 	}
@@ -132,14 +132,14 @@ public class InteractableItems : MonoBehaviour {
 				}
 
 			} else {
-				controller.LogStringWithReturn ("You can't use the " + nounToUse);
+				controller.LogStringWithReturn ("You can't use \"" + nounToUse +"\"");
 			} 
 
 		} 
 
 		else {
 
-			controller.LogStringWithReturn("There is no " + nounToUse + " in your inventory to use");
+			controller.LogStringWithReturn("There is no \"" + nounToUse + "\" in your inventory to use");
 		
 		}
 

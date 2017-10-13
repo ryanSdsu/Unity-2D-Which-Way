@@ -93,7 +93,10 @@ public class GameController : MonoBehaviour {
 		string joinedInteractionDescriptions = string.Join ("\n", interactionDescriptionsInRoom.ToArray ());
 
 		string combinedText = roomNavigation.currentRoom.description + "\n" + joinedInteractionDescriptions;
-		LogStringWithReturn (combinedText);
+
+		if (!combinedText.Equals ("")) {
+			LogStringWithReturn (combinedText);
+		}
 	}
 
 	void UnpackRoom() {
@@ -134,7 +137,9 @@ public class GameController : MonoBehaviour {
 			return verbDictionary [noun];
 		}
 
-		return "You can't " + TestVerbDictionarywithNoun + " the " + noun;
+
+
+		return "You can't " + TestVerbDictionarywithNoun + " \"" + noun +"\"";
 	}
 
 	void ClearCollectionForNewRoom() {
