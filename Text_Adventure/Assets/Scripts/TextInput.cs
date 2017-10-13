@@ -48,7 +48,11 @@ public class TextInput : MonoBehaviour {
 
 		"There is a giant question mark on the top right of the screen. Try clicking that.",
 
-		"Go aheard. Rage."
+		"Go aheard. Rage.",
+
+		"Hmmm no that's not it sorry.",
+
+		"If at first you don't succeed try, try and try again."
 
 
 

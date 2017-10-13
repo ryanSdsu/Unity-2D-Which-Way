@@ -64,6 +64,7 @@
      <Compile Include="Assets\Scripts\InteractableObject.cs" />
      <Compile Include="Assets\Scripts\Interaction.cs" />
      <Compile Include="Assets\Scripts\Inventory.cs" />
+     <Compile Include="Assets\Scripts\LoadLevelTransition.cs" />
      <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
      <Compile Include="Assets\Scripts\Refresh.cs" />
      <Compile Include="Assets\Scripts\Room.cs" />

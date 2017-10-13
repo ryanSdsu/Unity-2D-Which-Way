@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour {
 	public Text displayText;
 	public InputAction[] inputActions;
 	public Animator StartGameAnimator;
+	public Animator LoadLevelAnimator;
 	public GameObject StartTextScreen;
 	public GameObject DialogTextScreen;
 	public InputField inputField;
@@ -44,6 +45,12 @@ public class GameController : MonoBehaviour {
 			CreditsTextScreen.SetActive (false);
 			RedButtonStartScreenText.text = "Credits";
 		}
+	}
+
+	public void LoadLevel(string levelName) {
+
+		SceneManager.LoadScene (levelName);
+
 	}
 
 	public void RestartGame () {
