@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour {
 	public GameObject StartTextScreen;
 	public GameObject DialogTextScreen;
 	public InputField inputField;
-	public static string inventoryItemDescription;
+	public Dictionary<string, string> inventoryDictionary = new Dictionary<string, string> ();
 
 	[SerializeField]
 	private GameObject CreditsTextScreen;
@@ -31,13 +31,6 @@ public class GameController : MonoBehaviour {
 		interactableItems = GetComponent<InteractableItems> ();
 		roomNavigation = GetComponent<RoomNavigation> ();
 	}
-
-
-	public string getInventoryItemDescription() {
-
-		return inventoryItemDescription;
-	}
-
 
 		
 
@@ -146,8 +139,15 @@ public class GameController : MonoBehaviour {
 
 		if (verbDictionary.ContainsKey (noun)) {
 
-			if (TestVerbDictionarywithNoun.Equals("take"))
-				inventoryItemDescription = verbDictionary [noun];
+			if (TestVerbDictionarywithNoun.Equals ("take")) {
+				//Examine items in inventory
+				string itemDescription = verbDictionary[noun];
+				int lengthDescription = itemDescription.Length;
+				itemDescription = itemDescription.Substring(itemDescription.IndexOf("the") + 4);
+				string itemName = noun;
+				itemDescription = itemName + " (" + itemDescription;
+				inventoryDictionary.Add(itemName, itemDescription);
+			}
 
 			return verbDictionary [noun];
 		}

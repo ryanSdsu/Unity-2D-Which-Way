@@ -10,6 +10,7 @@ public class InteractableItems : MonoBehaviour {
 	public Dictionary<string, string> examineDictionary = new Dictionary<string, string> ();
 	public Dictionary<string, string> takeDictionary = new Dictionary<string, string> ();
 
+
 	public Image BackgroundOfRoom;
 
 	[HideInInspector] public List<string> nounsInRoom = new List<string>();
@@ -77,7 +78,8 @@ public class InteractableItems : MonoBehaviour {
 
 		for (int i = 0; i < nounsInInventory.Count; i++) {
 
-			controller.LogStringWithReturn (nounsInInventory [i]);
+			controller.LogStringWithReturn(controller.inventoryDictionary[nounsInInventory [i]]);
+
 		}
 	}
 
@@ -124,6 +126,7 @@ public class InteractableItems : MonoBehaviour {
 					//To destroy an item in inventory
 					if (useDictionary [nounToUse].breakableItem) {
 						nounsInInventory.Remove (nounToUse);
+						controller.inventoryDictionary.Remove(nounToUse);
 					}
 
 					if (useDictionary [nounToUse].changeRoomColor) {
