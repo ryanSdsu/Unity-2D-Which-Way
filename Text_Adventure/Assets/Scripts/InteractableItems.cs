@@ -9,12 +9,13 @@ public class InteractableItems : MonoBehaviour {
 
 	public Dictionary<string, string> examineDictionary = new Dictionary<string, string> ();
 	public Dictionary<string, string> takeDictionary = new Dictionary<string, string> ();
+
 	public Image BackgroundOfRoom;
 
 	[HideInInspector] public List<string> nounsInRoom = new List<string>();
 
 	Dictionary <string,ActionResponse> useDictionary = new Dictionary<string, ActionResponse> ();
-	List<string> nounsInInventory = new List<string> ();
+	public List<string> nounsInInventory = new List<string> ();
 	GameController controller;
 
 	void Awake() {
@@ -27,7 +28,6 @@ public class InteractableItems : MonoBehaviour {
 		InteractableObject interactableInRoom = currentRoom.interactableObjectsInRoom [i];
 
 		if (!nounsInInventory.Contains (interactableInRoom.noun) && !interactableInRoom.description.Equals("")) {
-
 			nounsInRoom.Add (interactableInRoom.noun);
 			return interactableInRoom.description;
 		}
@@ -87,6 +87,7 @@ public class InteractableItems : MonoBehaviour {
 		takeDictionary.Clear ();
 		nounsInRoom.Clear();
 	}
+		
 
 	public Dictionary<string, string> Take (string[] seperatedInputwords) {
 
@@ -96,6 +97,7 @@ public class InteractableItems : MonoBehaviour {
 			nounsInInventory.Add (noun);
 			AddActionResponsesToUseDictionary ();
 			nounsInRoom.Remove (noun);
+
 			return takeDictionary;
 		} else {
 			controller.LogStringWithReturn ("There is no \"" + noun + "\" here to take.");

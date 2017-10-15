@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour {
 	public GameObject StartTextScreen;
 	public GameObject DialogTextScreen;
 	public InputField inputField;
+	public static string inventoryItemDescription;
 
 	[SerializeField]
 	private GameObject CreditsTextScreen;
@@ -31,6 +32,14 @@ public class GameController : MonoBehaviour {
 		roomNavigation = GetComponent<RoomNavigation> ();
 	}
 
+
+	public string getInventoryItemDescription() {
+
+		return inventoryItemDescription;
+	}
+
+
+		
 
 	public void showCredits() {
 
@@ -110,20 +119,22 @@ public class GameController : MonoBehaviour {
 
 			string descriptionNotInInventory = interactableItems.GetObjectsNotInInventory (currentRoom, i);
 			if (descriptionNotInInventory != null) {
-			
+
 				interactionDescriptionsInRoom.Add (descriptionNotInInventory);
 			}
+				
 
 			InteractableObject interactableInRoom = currentRoom.interactableObjectsInRoom [i];
 
 			for (int j = 0; j < interactableInRoom.interactions.Length; j++) {
 				Interaction interaction = interactableInRoom.interactions [j];
-				if (interaction.inputAction.keyWord == "examine") {
+				if (interaction.inputAction.keyWord == "examine" && !(interactableItems.nounsInInventory.Contains(interactableInRoom.noun))) {
 					interactableItems.examineDictionary.Add(interactableInRoom.noun, interaction.textResponse);
 				}
 
 				if (interaction.inputAction.keyWord == "take") {
 					interactableItems.takeDictionary.Add(interactableInRoom.noun, interaction.textResponse);
+	
 				}
 
 
@@ -134,6 +145,10 @@ public class GameController : MonoBehaviour {
 	public string TestVerbDictionarywithNoun(Dictionary<string, string> verbDictionary, string TestVerbDictionarywithNoun, string noun) {
 
 		if (verbDictionary.ContainsKey (noun)) {
+
+			if (TestVerbDictionarywithNoun.Equals("take"))
+				inventoryItemDescription = verbDictionary [noun];
+
 			return verbDictionary [noun];
 		}
 
