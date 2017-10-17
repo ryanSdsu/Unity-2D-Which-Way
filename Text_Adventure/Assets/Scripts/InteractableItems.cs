@@ -28,6 +28,14 @@ public class InteractableItems : MonoBehaviour {
 
 		InteractableObject interactableInRoom = currentRoom.interactableObjectsInRoom [i];
 
+		if (interactableInRoom.removeItem) {
+			return null;
+		}
+
+		if (interactableInRoom.takeableItem) {
+			nounsInRoom.Add (interactableInRoom.noun);
+		}
+
 		if (!nounsInInventory.Contains (interactableInRoom.noun) && !interactableInRoom.description.Equals("")) {
 			nounsInRoom.Add (interactableInRoom.noun);
 			return interactableInRoom.description;
@@ -41,7 +49,6 @@ public class InteractableItems : MonoBehaviour {
 		for (int i = 0; i < nounsInInventory.Count; i++) {
 
 			string noun = nounsInInventory [i];
-
 			InteractableObject interactableObjectInInventory = GetInteractableObjectfromUsableList (noun);
 			if (interactableObjectInInventory == null)
 				continue;
@@ -53,7 +60,7 @@ public class InteractableItems : MonoBehaviour {
 				if (interaction.actionResponse == null)
 					continue;
 
-				if (!useDictionary.ContainsKey (noun)) {
+				if (!useDictionary.ContainsKey (noun) && interaction.inputAction.keyWord.Equals("use")) {
 					useDictionary.Add (noun, interaction.actionResponse);
 				}
 			}
@@ -99,6 +106,21 @@ public class InteractableItems : MonoBehaviour {
 			nounsInInventory.Add (noun);
 			AddActionResponsesToUseDictionary ();
 			nounsInRoom.Remove (noun);
+
+			//Perform any action responses
+			InteractableObject interactableObjectInInventory = GetInteractableObjectfromUsableList (noun);
+
+			for (int j = 0; j < interactableObjectInInventory.interactions.Length; j++) {
+
+				Interaction interaction = interactableObjectInInventory.interactions [j];
+
+				if (interaction.inputAction.keyWord.Equals("take")) {
+					if (interaction.actionResponse == null)
+						continue;
+					else
+						interaction.actionResponse.DoActionResponse(controller);
+				}
+			}
 
 			return takeDictionary;
 		} else {

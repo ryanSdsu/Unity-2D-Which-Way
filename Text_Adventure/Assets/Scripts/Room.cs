@@ -14,5 +14,6 @@ public class Room : ScriptableObject {
 	public InteractableObject[] interactableObjectsInRoom;
 	public bool isWinRoom;
 	public Color roomColor = Color.black;
+	GameController controller;
 
 }

@@ -25,11 +25,21 @@ public class GameController : MonoBehaviour {
 	[HideInInspector] public List<string> interactionDescriptionsInRoom = new List<string> ();
 	[HideInInspector] public InteractableItems interactableItems;
 	// Use this for initialization
+	public List<InteractableObject> resetRemoveItemsAtStartOfGame;
 
 	List<string> actionLog = new List<string> ();
 	void Awake () {
 		interactableItems = GetComponent<InteractableItems> ();
 		roomNavigation = GetComponent<RoomNavigation> ();
+
+		for (int i = 0; i < resetRemoveItemsAtStartOfGame.Count; i++) {
+			resetRemoveItemsAtStartOfGame[i].removeItem = false;
+			for (int j = 0; j < resetRemoveItemsAtStartOfGame[i].interactions.Length; j++) {
+				if (resetRemoveItemsAtStartOfGame [i].interactions [j].inputAction.keyWord.Equals ("examine"))
+					resetRemoveItemsAtStartOfGame[i].interactions[j].currentTextResponse = resetRemoveItemsAtStartOfGame[i].interactions[j].originalTextResponse; 
+			}
+		}
+
 	}
 
 		
@@ -121,12 +131,12 @@ public class GameController : MonoBehaviour {
 
 			for (int j = 0; j < interactableInRoom.interactions.Length; j++) {
 				Interaction interaction = interactableInRoom.interactions [j];
-				if (interaction.inputAction.keyWord == "examine" && !(interactableItems.nounsInInventory.Contains(interactableInRoom.noun))) {
-					interactableItems.examineDictionary.Add(interactableInRoom.noun, interaction.textResponse);
+				if (interaction.inputAction.keyWord == "examine" && !(interactableItems.nounsInInventory.Contains(interactableInRoom.noun)) && !(interactableInRoom.removeItem)) {
+					interactableItems.examineDictionary.Add(interactableInRoom.noun, interaction.currentTextResponse);
 				}
 
 				if (interaction.inputAction.keyWord == "take") {
-					interactableItems.takeDictionary.Add(interactableInRoom.noun, interaction.textResponse);
+					interactableItems.takeDictionary.Add(interactableInRoom.noun, interaction.currentTextResponse);
 	
 				}
 

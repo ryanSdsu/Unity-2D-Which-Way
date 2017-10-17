@@ -54,6 +54,7 @@
      <Compile Include="Assets\NeonShapes\SelfDestroyScript.cs" />
      <Compile Include="Assets\Scripts\ActionResponse.cs" />
      <Compile Include="Assets\Scripts\ChangeRoomResponse.cs" />
+     <Compile Include="Assets\Scripts\ClearItemsResponse.cs" />
      <Compile Include="Assets\Scripts\Examine.cs" />
      <Compile Include="Assets\Scripts\Exit.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />

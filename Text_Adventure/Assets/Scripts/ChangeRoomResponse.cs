@@ -9,7 +9,7 @@ public class ChangeRoomResponse : ActionResponse {
 
 	public override bool DoActionResponse (GameController controller)
 	{
-		if (controller.roomNavigation.currentRoom.roomName == requiredString) {
+		if (controller.roomNavigation.currentRoom.roomName == roomName) {
 			controller.roomNavigation.currentRoom = roomToChangeTo;
 			controller.DisplayRoomText ();
 			return true;

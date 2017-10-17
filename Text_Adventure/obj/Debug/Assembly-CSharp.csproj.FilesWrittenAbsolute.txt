@@ -42,3 +42,5 @@
 /Users/RJ/Desktop/Unity-Project/Text_Adventure/Temp/bin/Debug/Unity.CecilTools.dll
 /Users/RJ/Desktop/Unity-Project/Text_Adventure/Temp/bin/Debug/Mono.Cecil.Pdb.dll
 /Users/RJ/Desktop/Unity-Project/Text_Adventure/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/RJ/Desktop/Unity-Project/Text_Adventure/Temp/bin/Debug/Assembly-CSharp.dll.mdb
+/Users/RJ/Desktop/Unity-Project/Text_Adventure/Temp/bin/Debug/Assembly-CSharp.dll

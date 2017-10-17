@@ -7,7 +7,9 @@ public class Interaction {
 
 	public InputAction inputAction;
 	[TextArea]
-	public string textResponse;
+	public string currentTextResponse;
+	[TextArea]
+	public string originalTextResponse;
 	public ActionResponse actionResponse;
 
 
