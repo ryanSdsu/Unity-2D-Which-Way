@@ -6,6 +6,7 @@ using UnityEngine;
 public class ChangeRoomResponse : ActionResponse {
 
 	public Room roomToChangeTo;
+	public string roomName;
 
 	public override bool DoActionResponse (GameController controller)
 	{

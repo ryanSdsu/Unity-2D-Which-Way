@@ -5,8 +5,11 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "TextAdventure/ActionResponse/ClearItems")]
 public class ClearItemsResponse : ActionResponse {
 
+	[TextArea]
+	public string changeItemDescription = "Change Item Description";
+	public InteractableObject changeItem;
+	public List<InteractableObject> removeItems;
 
-	public Room roomToChangeTo;
 
 	public override bool DoActionResponse (GameController controller)
 	{
@@ -16,11 +19,9 @@ public class ClearItemsResponse : ActionResponse {
 
 		for (int i = 0; i < changeItem.interactions.Length; i++) {
 			if (changeItem.interactions[i].inputAction.keyWord.Equals ("examine"))
-				changeItem.interactions[i].currentTextResponse = "(Ah the Captain's unfirom. A display of leadership and even possible mutiny.)"; 
+				changeItem.interactions[i].currentTextResponse = changeItemDescription; 
 		}
-
-
-
+			
 		return true;
 	}
 

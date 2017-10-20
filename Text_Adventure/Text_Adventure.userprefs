@@ -2,25 +2,26 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameController.cs">
     <Files>
-      <File FileName="Assets/Scripts/InteractableItems.cs" Line="129" Column="56" />
-      <File FileName="Assets/Scripts/InputAction.cs" Line="9" Column="66" />
-      <File FileName="Assets/Scripts/InteractableObject.cs" Line="9" Column="12" />
-      <File FileName="Assets/Scripts/Room.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Interaction.cs" Line="8" Column="32" />
-      <File FileName="Assets/Scripts/Go.cs" Line="10" Column="1" />
+      <File FileName="Assets/Scripts/TextInput.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/InteractableItems.cs" Line="123" Column="5" />
+      <File FileName="Assets/Scripts/InputAction.cs" Line="5" Column="1" />
+      <File FileName="Assets/Scripts/InteractableObject.cs" Line="10" Column="52" />
+      <File FileName="Assets/Scripts/Room.cs" Line="18" Column="2" />
+      <File FileName="Assets/Scripts/Interaction.cs" Line="10" Column="35" />
+      <File FileName="Assets/Scripts/Go.cs" Line="10" Column="49" />
       <File FileName="Assets/Scripts/Exit.cs" Line="13" Column="1" />
-      <File FileName="Assets/Scripts/Take.cs" Line="18" Column="4" />
-      <File FileName="Assets/Scripts/RoomNavigation.cs" Line="20" Column="2" />
+      <File FileName="Assets/Scripts/Take.cs" Line="1" Column="3" />
+      <File FileName="Assets/Scripts/RoomNavigation.cs" Line="19" Column="1" />
       <File FileName="Assets/Scripts/Use.cs" Line="10" Column="39" />
-      <File FileName="Assets/Scripts/ActionResponse.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ActionResponse.cs" Line="13" Column="39" />
       <File FileName="Assets/Scripts/Inventory.cs" Line="10" Column="48" />
       <File FileName="Assets/Scripts/Refresh.cs" Line="8" Column="64" />
       <File FileName="Assets/Scripts/InfoPannelController.cs" Line="16" Column="33" />
       <File FileName="Assets/Scripts/Examine.cs" Line="10" Column="1" />
-      <File FileName="Assets/Scripts/ChangeRoomResponse.cs" Line="3" Column="1" />
-      <File FileName="Assets/Scripts/GameController.cs" Line="143" Column="8" />
-      <File FileName="Assets/Scripts/TextInput.cs" Line="55" Column="58" />
+      <File FileName="Assets/Scripts/ChangeRoomResponse.cs" Line="12" Column="65" />
+      <File FileName="Assets/Scripts/GameController.cs" Line="27" Column="32" />
       <File FileName="Assets/Scripts/LoadLevelTransition.cs" Line="12" Column="47" />
+      <File FileName="Assets/Scripts/ClearItemsResponse.cs" Line="19" Column="132" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

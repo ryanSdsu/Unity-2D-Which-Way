@@ -57,10 +57,17 @@ public class InteractableItems : MonoBehaviour {
 
 				Interaction interaction = interactableObjectInInventory.interactions [j];
 
-				if (interaction.actionResponse == null)
-					continue;
 
+				if (interaction.actionResponse == null) {
+					Debug.Log ("actionresponse is null");
+					continue;
+				}
+				//Debug.Log ("actionresponse is not null");
+				Debug.Log (!(useDictionary.ContainsKey (noun)));
+				Debug.Log (interaction.inputAction.keyWord.Equals("use"));
+				Debug.Log (interaction.inputAction.keyWord.ToString());
 				if (!useDictionary.ContainsKey (noun) && interaction.inputAction.keyWord.Equals("use")) {
+					Debug.Log ("Added to dictionary");
 					useDictionary.Add (noun, interaction.actionResponse);
 				}
 			}
@@ -135,11 +142,13 @@ public class InteractableItems : MonoBehaviour {
 
 		if (nounsInInventory.Contains (nounToUse)) 
 		{
-
+			Debug.Log (nounToUse + " is in the nounsInInventory");
 			if (useDictionary.ContainsKey (nounToUse)) 
 			{
-
+				Debug.Log (nounToUse + " is in the Dictionary: " + useDictionary[nounToUse]);
 				bool actionResult = useDictionary [nounToUse].DoActionResponse (controller);
+				Debug.Log (actionResult + " is the action result");
+
 				if (!actionResult) {
 
 					controller.LogStringWithReturn ("Hmmm. Nothing happens...");
@@ -151,9 +160,15 @@ public class InteractableItems : MonoBehaviour {
 						controller.inventoryDictionary.Remove(nounToUse);
 					}
 
+					//To change an item in inventory
 					if (useDictionary [nounToUse].changeRoomColor) {
 						BackgroundOfRoom.color = useDictionary [nounToUse].roomColor;
 					}
+
+					if (useDictionary [nounToUse].displayUseMessage) {
+						controller.LogStringWithReturn (useDictionary [nounToUse].useMessage);
+					}
+
 
 
 				}
