@@ -90,11 +90,13 @@ public class TextInput : MonoBehaviour {
 			InputComplete (false);
 			return;
 		}
-			
+
+		Debug.Log ("text entered is: " + separatedInputWords [0]);
 		for (int i = 0; i < controller.inputActions.Length; i++) {
 
 			InputAction inputAction = controller.inputActions [i];
 			if (inputAction.keyWord == separatedInputWords [0] && separatedInputWords.Length <= 2) {
+				Debug.Log ("text entered and is successful: " + separatedInputWords [0]);
 				inputAction.RespondToInput (controller, separatedInputWords);
 				InputComplete ();
 				return;

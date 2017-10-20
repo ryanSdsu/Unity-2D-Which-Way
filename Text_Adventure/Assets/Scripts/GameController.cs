@@ -25,18 +25,25 @@ public class GameController : MonoBehaviour {
 	[HideInInspector] public List<string> interactionDescriptionsInRoom = new List<string> ();
 	[HideInInspector] public InteractableItems interactableItems;
 	// Use this for initialization
-	public List<InteractableObject> resetRemoveItemsAtStartOfGame;
+	public List<InteractableObject> resetRemoveItemsAtStartOfGameToBeFalse;
+	public List<InteractableObject> resetRemoveItemsAtStartOfGameToBeTrue;
 
 	List<string> actionLog = new List<string> ();
 	void Awake () {
 		interactableItems = GetComponent<InteractableItems> ();
 		roomNavigation = GetComponent<RoomNavigation> ();
 
-		for (int i = 0; i < resetRemoveItemsAtStartOfGame.Count; i++) {
-			resetRemoveItemsAtStartOfGame[i].removeItem = false;
-			for (int j = 0; j < resetRemoveItemsAtStartOfGame[i].interactions.Length; j++) {
-				if (resetRemoveItemsAtStartOfGame [i].interactions [j].inputAction.keyWord.Equals ("examine"))
-					resetRemoveItemsAtStartOfGame[i].interactions[j].currentTextResponse = resetRemoveItemsAtStartOfGame[i].interactions[j].originalTextResponse; 
+		for (int i = 0; i < resetRemoveItemsAtStartOfGameToBeFalse.Count; i++) {
+			resetRemoveItemsAtStartOfGameToBeFalse[i].removeItem = false;
+			for (int j = 0; j < resetRemoveItemsAtStartOfGameToBeFalse[i].interactions.Length; j++) {
+				resetRemoveItemsAtStartOfGameToBeFalse[i].interactions[j].currentTextResponse = resetRemoveItemsAtStartOfGameToBeFalse[i].interactions[j].originalTextResponse; 
+			}
+		}
+
+		for (int i = 0; i < resetRemoveItemsAtStartOfGameToBeTrue.Count; i++) {
+			resetRemoveItemsAtStartOfGameToBeTrue[i].removeItem = true;
+			for (int j = 0; j < resetRemoveItemsAtStartOfGameToBeTrue[i].interactions.Length; j++) {
+				resetRemoveItemsAtStartOfGameToBeTrue[i].interactions[j].currentTextResponse = resetRemoveItemsAtStartOfGameToBeTrue[i].interactions[j].originalTextResponse; 
 			}
 		}
 
@@ -138,6 +145,15 @@ public class GameController : MonoBehaviour {
 				if (interaction.inputAction.keyWord == "take") {
 					interactableItems.takeDictionary.Add(interactableInRoom.noun, interaction.currentTextResponse);
 	
+				}
+
+				Debug.Log ("Checking for Find");
+				if (interaction.inputAction.keyWord == "find") {
+					Debug.Log ("Find is found");
+					Debug.Log (interactableInRoom.noun);
+					Debug.Log (interaction.currentTextResponse);
+					interactableItems.findDictionary.Add(interactableInRoom.noun, interaction.currentTextResponse);
+
 				}
 
 			}

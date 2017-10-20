@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\ClearItemsResponse.cs" />
      <Compile Include="Assets\Scripts\Examine.cs" />
      <Compile Include="Assets\Scripts\Exit.cs" />
+     <Compile Include="Assets\Scripts\Find.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\Go.cs" />
      <Compile Include="Assets\Scripts\InfoPannelController.cs" />

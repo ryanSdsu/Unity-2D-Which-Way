@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class InteractableItems : MonoBehaviour {
 
-	public List<InteractableObject> usableItemList;
+	public List<InteractableObject> usableAndTakeableItemList;
 
 	public Dictionary<string, string> examineDictionary = new Dictionary<string, string> ();
 	public Dictionary<string, string> takeDictionary = new Dictionary<string, string> ();
+	public Dictionary<string, string> findDictionary = new Dictionary<string, string> ();
 
 
 	public Image BackgroundOfRoom;
@@ -76,10 +77,10 @@ public class InteractableItems : MonoBehaviour {
 
 	InteractableObject GetInteractableObjectfromUsableList(string noun) {
 
-		for (int i = 0; i < usableItemList.Count; i++) {
+		for (int i = 0; i < usableAndTakeableItemList.Count; i++) {
 
-			if (usableItemList[i].noun == noun) {
-				return usableItemList[i];
+			if (usableAndTakeableItemList[i].noun == noun) {
+				return usableAndTakeableItemList[i];
 			}
 		}
 		return null;
@@ -101,6 +102,7 @@ public class InteractableItems : MonoBehaviour {
 
 		examineDictionary.Clear();
 		takeDictionary.Clear ();
+		findDictionary.Clear ();
 		nounsInRoom.Clear();
 	}
 		
@@ -117,6 +119,12 @@ public class InteractableItems : MonoBehaviour {
 			//Perform any action responses
 			InteractableObject interactableObjectInInventory = GetInteractableObjectfromUsableList (noun);
 
+			Debug.Log (noun);
+			Debug.Log ("Over here");
+
+			Debug.Log (interactableObjectInInventory.interactions[0]);
+
+			Debug.Log (interactableObjectInInventory.interactions.Length);
 			for (int j = 0; j < interactableObjectInInventory.interactions.Length; j++) {
 
 				Interaction interaction = interactableObjectInInventory.interactions [j];
