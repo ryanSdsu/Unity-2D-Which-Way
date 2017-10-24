@@ -9,6 +9,8 @@ public class Room : ScriptableObject {
 
 	[TextArea]
 	public string description;
+	[TextArea]
+	public string originalDescription;
 	public string roomName;
 	public Exit[] exits;
 	public InteractableObject[] interactableObjectsInRoom;

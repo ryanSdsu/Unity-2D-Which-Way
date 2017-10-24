@@ -27,6 +27,8 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	public List<InteractableObject> resetRemoveItemsAtStartOfGameToBeFalse;
 	public List<InteractableObject> resetRemoveItemsAtStartOfGameToBeTrue;
+	public List<Room> resetDefaultRoomDescriptions;
+
 
 	List<string> actionLog = new List<string> ();
 	void Awake () {
@@ -45,6 +47,10 @@ public class GameController : MonoBehaviour {
 			for (int j = 0; j < resetRemoveItemsAtStartOfGameToBeTrue[i].interactions.Length; j++) {
 				resetRemoveItemsAtStartOfGameToBeTrue[i].interactions[j].currentTextResponse = resetRemoveItemsAtStartOfGameToBeTrue[i].interactions[j].originalTextResponse; 
 			}
+		}
+
+		for (int i = 0; i < resetDefaultRoomDescriptions.Count; i++) {
+			resetDefaultRoomDescriptions [i].description = resetDefaultRoomDescriptions [i].originalDescription;
 		}
 
 	}
@@ -172,6 +178,10 @@ public class GameController : MonoBehaviour {
 				string itemName = noun;
 				itemDescription = itemName + " (" + itemDescription;
 				inventoryDictionary.Add(itemName, itemDescription);
+			}
+
+			if (TestVerbDictionarywithNoun.Equals ("examine")) {
+				interactableItems.Examine(noun);
 			}
 
 			return verbDictionary [noun];

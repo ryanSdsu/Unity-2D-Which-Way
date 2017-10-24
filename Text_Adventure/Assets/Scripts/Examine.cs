@@ -8,6 +8,8 @@ public class Examine : InputAction {
 	public override void RespondToInput (GameController controller, string[] separatedInputWords)
 	{
 		controller.LogStringWithReturn (controller.TestVerbDictionarywithNoun (controller.interactableItems.examineDictionary, separatedInputWords [0], separatedInputWords [1]));
+		//bool actionResult = useDictionary [nounToUse].DoActionResponse (controller);
+
 	}
 
 }

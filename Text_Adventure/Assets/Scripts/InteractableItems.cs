@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class InteractableItems : MonoBehaviour {
 
-	public List<InteractableObject> usableAndTakeableItemList;
+	public List<InteractableObject> ActionResponsesInitList;
 
 	public Dictionary<string, string> examineDictionary = new Dictionary<string, string> ();
 	public Dictionary<string, string> takeDictionary = new Dictionary<string, string> ();
@@ -77,10 +77,10 @@ public class InteractableItems : MonoBehaviour {
 
 	InteractableObject GetInteractableObjectfromUsableList(string noun) {
 
-		for (int i = 0; i < usableAndTakeableItemList.Count; i++) {
+		for (int i = 0; i < ActionResponsesInitList.Count; i++) {
 
-			if (usableAndTakeableItemList[i].noun == noun) {
-				return usableAndTakeableItemList[i];
+			if (ActionResponsesInitList[i].noun == noun) {
+				return ActionResponsesInitList[i];
 			}
 		}
 		return null;
@@ -143,6 +143,26 @@ public class InteractableItems : MonoBehaviour {
 			return null;
 		}
 	}
+
+
+	public void Examine (string noun) {
+
+			//Perform any action responses
+			InteractableObject interactableObjectInInventory = GetInteractableObjectfromUsableList (noun);
+			Debug.Log("examining examine action repsonses");
+			for (int j = 0; j < interactableObjectInInventory.interactions.Length; j++) {
+
+				Interaction interaction = interactableObjectInInventory.interactions [j];
+
+				if (interaction.inputAction.keyWord.Equals("examine")) {
+					if (interaction.actionResponse == null)
+						continue;
+					else
+						interaction.actionResponse.DoActionResponse(controller);
+				}
+			}
+
+		}
 
 	public void UseItem(string[] separatedInputWords) {
 
