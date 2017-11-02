@@ -197,7 +197,7 @@ public class InteractableItems : MonoBehaviour {
 						controller.LogStringWithReturn (useDictionary [nounToUse].useMessage);
 					}
 
-
+					controller.PlayClip ("use");
 
 				}
 

@@ -42,6 +42,7 @@ public class RoomNavigation : MonoBehaviour {
 				
 			controller.LogStringWithReturn ("You head off to the " + directionNoun);
 			controller.DisplayRoomText ();
+			controller.PlayClip ("go");
 
 			//Changing the background color
 			//BackgroundOfRoom.color = currentRoom.roomColor;

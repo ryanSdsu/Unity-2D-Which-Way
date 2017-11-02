@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour {
 
 	public Text displayText;
+	public Text soundText;
 	public InputAction[] inputActions;
 	public Animator StartGameAnimator;
 	public Animator LoadLevelAnimator;
@@ -201,6 +202,30 @@ public class GameController : MonoBehaviour {
 	public void LogStringWithReturn(string stringToAdd) {
 	
 		actionLog.Add (stringToAdd + "\n");
+	}
+
+	public void PlayClip(string clipName) {
+		//Create and audiosource and add it to the camera
+		AudioSource a = Camera.main.gameObject.AddComponent<AudioSource>();
+
+		//Assign the right clip to it
+		a.clip = Resources.Load<AudioClip>("Audio/" + clipName);
+
+		//Play the clip
+		a.Play();
+
+		//Destroy clip
+		Destroy(a, a.clip.length);
+	}
+
+	public void ToggleSound() {
+		if (soundText.text.Equals("Sound Off")){
+			soundText.text = "Sound On";
+			AudioListener.pause = false;
+		} else {
+			soundText.text = "Sound Off";
+			AudioListener.pause = true;
+		}
 	}
 
 	// Update is called once per frame

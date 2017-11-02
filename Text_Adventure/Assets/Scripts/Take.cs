@@ -15,6 +15,7 @@ public class Take : InputAction {
 		if (takeDictionary != null) {
 
 			controller.LogStringWithReturn (controller.TestVerbDictionarywithNoun (takeDictionary, separatedInputWords [0], separatedInputWords [1]));
+			controller.PlayClip ("take");
 
 		}
 	}
