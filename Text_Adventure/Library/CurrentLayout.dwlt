@@ -106,8 +106,8 @@ MonoBehaviour:
     y: 30
     width: 1440
     height: 709
-  m_MinSize: {x: 683, y: 492}
-  m_MaxSize: {x: 14004, y: 14042}
+  m_MinSize: {x: 679, y: 492}
+  m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
   controlID: 50
 --- !u!114 &6
@@ -130,7 +130,7 @@ MonoBehaviour:
     y: 0
     width: 1039
     height: 709
-  m_MinSize: {x: 406, y: 492}
+  m_MinSize: {x: 404, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
   controlID: 51
@@ -154,8 +154,8 @@ MonoBehaviour:
     y: 0
     width: 1039
     height: 438
-  m_MinSize: {x: 406, y: 221}
-  m_MaxSize: {x: 8006, y: 4021}
+  m_MinSize: {x: 404, y: 221}
+  m_MaxSize: {x: 8004, y: 4021}
   vertical: 0
   controlID: 52
 --- !u!114 &8
@@ -176,8 +176,8 @@ MonoBehaviour:
     y: 0
     width: 260
     height: 438
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -255,8 +255,8 @@ MonoBehaviour:
     y: 0
     width: 401
     height: 709
-  m_MinSize: {x: 277, y: 71}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -366,23 +366,23 @@ MonoBehaviour:
     height: 417
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: c2270000
+    m_SelectedIDs: ba280000
     m_LastClickedID: 0
-    m_ExpandedIDs: ca78f5ff4433f6ff66b1f6ff26b9f6ff2a15f8fff65ffbff6afbffffa6fbffff0000000000290000262900004a2900005e29000084630000ae630000
+    m_ExpandedIDs: a6fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Sound Text
-      m_OriginalName: Sound Text
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: -303120
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 0
       m_ClientGUIView: {fileID: 8}
     m_SearchString: 
@@ -600,19 +600,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scenes
+    - Assets/Scripts/Scriptable Objects/Items/Tutorial Level/HallOfAdventure
   m_ViewMode: 1
   m_StartGridSize: 71
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Scripts/Scriptable Objects/Items/Tutorial Level/HallOfAdventure
   m_LastFoldersGridSize: 71
   m_LastProjectPath: /Users/RJ/Desktop/unity/Unity-Project/Text_Adventure
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 173.98438}
-    m_SelectedIDs: 18280000
-    m_LastClickedID: 10264
-    m_ExpandedIDs: 0000000034270000522700005e2700008c270000ee270000fa270000762800007c2800009c2800009e280000ac280000c6280000182d000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 450}
+    m_SelectedIDs: 4a270000
+    m_LastClickedID: 10058
+    m_ExpandedIDs: 00000000342700006227000074270000b8270000322800003e280000da280000e828000012290000142900002a2900004e290000b02a000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -640,7 +640,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000034270000522700005e2700008c270000ee270000fa270000762800007c2800009c2800009e280000ac280000c6280000
+    m_ExpandedIDs: 00000000342700006227000074270000b8270000322800003e280000da280000e828000012290000142900002a2900004e290000b02a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
