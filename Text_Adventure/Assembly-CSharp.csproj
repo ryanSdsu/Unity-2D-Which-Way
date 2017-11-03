@@ -74,7 +74,6 @@
      <Compile Include="Assets\Scripts\Take.cs" />
      <Compile Include="Assets\Scripts\TextInput.cs" />
      <Compile Include="Assets\Scripts\Use.cs" />
-     <None Include="Assets\FootstepsSoundsCarpetPack\FootstepsSoundsCarpetPackInfo.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
