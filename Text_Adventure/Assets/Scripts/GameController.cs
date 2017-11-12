@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
+	public static GameController instance;
 	public Text displayText;
 	public Text soundText;
 	public InputAction[] inputActions;
@@ -33,6 +34,12 @@ public class GameController : MonoBehaviour {
 
 	List<string> actionLog = new List<string> ();
 	void Awake () {
+		if (instance == null) {
+			instance = this;
+		} else {
+			Destroy(gameObject);
+		}
+			
 		interactableItems = GetComponent<InteractableItems> ();
 		roomNavigation = GetComponent<RoomNavigation> ();
 
