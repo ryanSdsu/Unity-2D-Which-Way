@@ -37,9 +37,9 @@ public class GameController : MonoBehaviour {
 		if (instance == null) {
 			instance = this;
 		} else {
-			Destroy(gameObject);
+			Destroy (gameObject);
 		}
-			
+
 		interactableItems = GetComponent<InteractableItems> ();
 		roomNavigation = GetComponent<RoomNavigation> ();
 
