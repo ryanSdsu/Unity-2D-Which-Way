@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class RoomNavigation : MonoBehaviour {
@@ -11,6 +12,7 @@ public class RoomNavigation : MonoBehaviour {
 	Dictionary<string, Room> exitDictionary = new Dictionary<string, Room> ();
 	GameController controller;
 	public Animator winScreenAnimator;
+	public CanvasGroup mainCanvas;
 
 
 	void Awake() 
@@ -44,8 +46,9 @@ public class RoomNavigation : MonoBehaviour {
 			controller.DisplayRoomText ();
 			controller.PlayClip ("go");
 
-			//Changing the background color
-			//BackgroundOfRoom.color = currentRoom.roomColor;
+			StartCoroutine(loadCutScene());
+
+
 
 
 		} else {
@@ -54,6 +57,30 @@ public class RoomNavigation : MonoBehaviour {
 		}
 	
 	}
+
+	IEnumerator loadCutScene()
+	{
+
+		Scene main = SceneManager.GetSceneByName ("Main");
+		SceneManager.LoadScene ("WalkingScene", LoadSceneMode.Additive);
+		float time = 1f;
+		while(mainCanvas.alpha > 0)
+		{
+			mainCanvas.alpha -= Time.deltaTime / time;
+		}
+
+		//Wait for 15 seconds
+		yield return new WaitForSeconds(15);		Debug.Log ("waiting");
+
+		while(mainCanvas.alpha != 1)
+		{
+			mainCanvas.alpha += Time.deltaTime / time;
+		}
+		SceneManager.UnloadSceneAsync ("WalkingScene");
+
+
+	}
+		
 
 	public void ClearExits() {
 

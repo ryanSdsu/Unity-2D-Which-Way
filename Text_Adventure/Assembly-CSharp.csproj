@@ -165,6 +165,7 @@
      <Compile Include="Assets\PostProcessing\Runtime\Utils\MaterialFactory.cs" />
      <Compile Include="Assets\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />
      <Compile Include="Assets\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
+     <Compile Include="Assets\RunScene.cs" />
      <Compile Include="Assets\Scripts\ActionResponse.cs" />
      <Compile Include="Assets\Scripts\ChangeRoomResponse.cs" />
      <Compile Include="Assets\Scripts\ClearItemsResponse.cs" />
